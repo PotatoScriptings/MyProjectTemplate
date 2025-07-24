@@ -5,17 +5,18 @@
 
     "ReplicatedStorage": {
       "Modules": {
-        "InfoModules": {},
-        "UtilityModules": {},
-        "FrameworkModules": {},
+        "$className": "Folder",
+        "InfoModules": {"$className": "Folder"},
+        "UtilityModules": {"$className": "Folder"},
+        "FrameworkModules": {"$className": "Folder"},
         "CoreModule": {
           "$path": "src/shared/Modules/init.CoreModule.lua"
         }
       },
-      "Animations": {},
-      "Models": {},
-      "Sounds": {},
-      "VFX": {}
+      "Animations": {"$className": "Folder"},
+      "Models": {"$className": "Folder"},
+      "Sounds": {"$className": "Folder"},
+      "VFX": {"$className": "Folder"}
     },
 
     "ServerScriptService": {
