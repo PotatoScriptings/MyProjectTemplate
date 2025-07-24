@@ -6,18 +6,6 @@
     "ReplicatedStorage": {
       "Modules": {
         "$className": "Folder",
-        "InfoModules": {
-          "$className": "Folder",
-          "$path": "src/shared/Modules/Info"
-        },
-        "UtilityModules": {
-          "$className": "Folder",
-          "$path": "src/shared/Modules/Utility"
-        },
-        "FrameworkModules": {
-          "$className": "Folder",
-          "$path": "src/shared/Modules/Frameworks"
-        },
         "$path": "src/shared/Modules"
       },
       "Animations": {"$className": "Folder"},
