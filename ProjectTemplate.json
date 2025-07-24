@@ -11,7 +11,8 @@
       "Animations": {"$className": "Folder"},
       "Models": {"$className": "Folder"},
       "Sounds": {"$className": "Folder"},
-      "VFX": {"$className": "Folder"}
+      "VFX": {"$className": "Folder"},
+      "Events": {"$className": "Folder"}
     },
 
     "ServerScriptService": {
