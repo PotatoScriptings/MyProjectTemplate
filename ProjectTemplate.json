@@ -5,15 +5,9 @@
 
     "ReplicatedStorage": {
       "Modules": {
-        "InfoModules": {
-          "$path": "src/shared/Modules/Info"
-        },
-        "UtilityModules": {
-          "$path": "src/shared/Modules/Utility"
-        },
-        "FrameworkModules": {
-          "$path": "src/shared/Modules/Frameworks"
-        },
+        "InfoModules": {},
+        "UtilityModules": {},
+        "FrameworkModules": {},
         "CoreModule": {
           "$path": "src/shared/Modules/init.CoreModule.lua"
         }
