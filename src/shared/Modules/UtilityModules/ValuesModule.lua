@@ -28,6 +28,8 @@ function module.GiveValues(Object, Values)
         
         NewValue.Name = Value.Name or ("Value" .. tostring(Num))
     end
+
+    return ValuesFolder
 end
 
 return module
