@@ -5,7 +5,8 @@
 ]]
 
 local PlayerData = {
-
+    -- Example:
+    -- NewValue = {Name = "NewValue", Type = "NumberValue", Value = 1}
 }
 
 return PlayerData
