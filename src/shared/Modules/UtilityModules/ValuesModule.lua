@@ -17,7 +17,7 @@ function module.GiveValues(Object, Values)
     end
 
     -- Loops through values
-    for Num, Value in pairs(Values) do
+    for Name, Value in pairs(Values) do
         -- Creates new value
         local NewValue = Instance.new(Value.Type)
         NewValue.Parent = ValuesFolder
@@ -26,7 +26,7 @@ function module.GiveValues(Object, Values)
             NewValue.Value = Value.Value
         end
         
-        NewValue.Name = Value.Name or ("Value" .. tostring(Num))
+        NewValue.Name = Name
     end
 
     return ValuesFolder
