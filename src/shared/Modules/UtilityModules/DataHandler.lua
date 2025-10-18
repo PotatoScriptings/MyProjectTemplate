@@ -10,11 +10,11 @@ local DatastoreService = game:GetService("DataStoreService")
 local Players = game:GetService("Players")
 
 local modules = ReplicatedStorage.Modules
-local infoModules = modules.InfoModules
 local utilityModules = modules.UtilityModules
 
-local data = require(infoModules:WaitForChild("Data"))
-local utility = require(utilityModules:WaitForChild("Utility"))
+local loadHandler = require(utilityModules:WaitForChild("LoadHandler"))
+local data = loadHandler.getInfo("Data")
+local utility = loadHandler.getModule("Utility")
 
 local playerDataStore = DatastoreService:GetDataStore("playerData")
 
@@ -50,6 +50,9 @@ end
 -- Function to set a component
 local function setComponent(id : number, componentName : string, value : any)
     local currentComponent = components[componentName]
+    if not currentComponent then
+        return
+    end
 
     currentComponent[id] = value
 

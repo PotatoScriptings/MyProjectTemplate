@@ -8,15 +8,15 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local modules = ReplicatedStorage.Modules
-local infoModules = modules.InfoModules
 local utilityModules = modules.UtilityModules
 
-local typesToValues = require(infoModules:WaitForChild("TypesToValues"))
+local loadHandler = require(utilityModules:WaitForChild("LoadHandler"))
+local typesToValues = loadHandler.loadInfo("TypesToValues")
 
 local Utility = {}
 
 -- Function to convert type to value
-function Utility.typeToValue(value : any, name : string?, parent : any?) : Instance?
+function Utility.typeToValue(value : any, name : string?, parent : any?) : Instance
     -- Gets the value type
     local valueType = typesToValues[typeof(value)]
     if not valueType then
