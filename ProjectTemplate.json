@@ -12,7 +12,7 @@
       "Models": {"$className": "Folder"},
       "Sounds": {"$className": "Folder"},
       "VFX": {"$className": "Folder"},
-      "Events": {"$className": "Folder"}
+      "Remotes": {"$className": "Folder"}
     },
 
     "ServerScriptService": {
