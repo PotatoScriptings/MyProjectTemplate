@@ -27,7 +27,7 @@ function LoadHandler.loadModule(moduleName : string) : {}
     local module = utilityModules:WaitForChild(moduleName)
 
     if infoModules then
-        return module
+        return require(module)
     end
 end
 
