@@ -14,7 +14,7 @@ local infoModules = modules.InfoModules
 local utilityModules = modules.UtilityModules
 
 local data = require(infoModules:WaitForChild("Data"))
-local typesToValues = require(utilityModules:WaitForChild("TypesToValues"))
+local utility = require(utilityModules:WaitForChild("Utility"))
 
 local playerDataStore = DatastoreService:GetDataStore("playerData")
 
@@ -59,7 +59,7 @@ local function setComponent(id : number, componentName : string, value : any)
         return
     end
     local playerValues : Folder = player:FindFirstChild("Values")
-    local newValue = typesToValues.typeToValue(value, componentName, playerValues)
+    local newValue = utility.typeToValue(value, componentName, playerValues)
     if not newValue then
         return
     end
