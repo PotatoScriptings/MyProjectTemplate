@@ -14,6 +14,7 @@ local infoModules = modules.InfoModules
 local utilityModules = modules.UtilityModules
 
 local data = require(infoModules:WaitForChild("Data"))
+local typesToValues = require(utilityModules:WaitForChild("TypesToValues"))
 
 local playerDataStore = DatastoreService:GetDataStore("playerData")
 
@@ -22,7 +23,22 @@ local entityIndex = 0
 local DataHandler = {}
 
 -- Creates components
-local components = data["NewPlayer"]
+local components = {}
+components["Player"] = {}
+
+for name, value in data do
+    components[name] = {}
+end
+
+-- Function to get an id from player
+local function getIdFromPlayer(player : Player) : number
+    return table.find(components["Player"], player)
+end
+
+-- Function to get a player from id
+local function getPlayerFromId(Id : number) : Player
+    return components["Player"][Id]
+end
 
 -- Function to create new entity
 local function createEntity() : number
@@ -36,11 +52,27 @@ local function setComponent(id : number, componentName : string, value : any)
     local currentComponent = components[componentName]
 
     currentComponent[id] = value
-end
 
--- Function to get an id from player
-local function getIdFromPlayer(player : Player)
-    return table.find(components["Name"], player.Name)
+    -- Creates new value in player values
+    local player = getPlayerFromId(id)
+    if not player then
+        return
+    end
+    local playerValues : Folder = player:FindFirstChild("Values")
+    local newValue = typesToValues.typeToValue(value, componentName, playerValues)
+    if not newValue then
+        return
+    end
+
+    -- When value changes update component
+    local valueChangedConnection
+    valueChangedConnection = newValue:GetPropertyChangedSignal("Value"):Connect(function()
+        currentComponent[id] = newValue.Value
+    end)
+
+    newValue.Destroying:Once(function()
+        valueChangedConnection:Disconnect()
+    end)
 end
 
 -- Function to get a player's data
@@ -69,9 +101,21 @@ Players.PlayerAdded:Connect(function(player)
     local id = createEntity()
     local playerData = playerDataStore:GetAsync(player.UserId)
 
+    -- Creates player values
+    local playerValues = Instance.new("Folder")
+    playerValues.Name = "Values"
+    playerValues.Parent = player
+
     -- Sets components
-    for name, value in playerData do
-        setComponent(id, name, value)
+    setComponent(id, "Player", player)
+    if playerData then
+        for name, value in playerData do
+            setComponent(id, name, value)
+        end
+    else
+        for name, value in data do
+            setComponent(id, name, value)
+        end
     end
 end)
 

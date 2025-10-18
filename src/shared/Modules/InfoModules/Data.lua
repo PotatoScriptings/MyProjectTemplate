@@ -8,7 +8,7 @@ local Data = {}
 
 -- New player
 Data["NewPlayer"] = {
-    ["Name"] = "",
+    -- eg. ["Coins"] = 0
 }
 
 -- New developer
