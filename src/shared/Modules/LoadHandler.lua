@@ -31,6 +31,16 @@ function LoadHandler.loadModule(moduleName : string) : {}
     end
 end
 
+-- Function to get information
+function LoadHandler.getInfo(infoType : string, infoName : string)
+    local folder = ReplicatedStorage:FindFirstChild(infoType)
+    if not folder then
+        return
+    end
+
+    return folder:FindFirstChild(infoName)
+end
+
 -- Function to initialize modules
 function LoadHandler.initialize()
     for _, module in utilityModules do
