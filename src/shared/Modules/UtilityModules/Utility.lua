@@ -8,9 +8,8 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local modules = ReplicatedStorage.Modules
-local utilityModules = modules.UtilityModules
 
-local loadHandler = require(utilityModules:WaitForChild("LoadHandler"))
+local loadHandler = require(modules:WaitForChild("LoadHandler"))
 local typesToValues = loadHandler.loadInfo("TypesToValues")
 
 local Utility = {}

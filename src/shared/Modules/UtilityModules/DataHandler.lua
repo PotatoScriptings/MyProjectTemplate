@@ -10,9 +10,8 @@ local DatastoreService = game:GetService("DataStoreService")
 local Players = game:GetService("Players")
 
 local modules = ReplicatedStorage.Modules
-local utilityModules = modules.UtilityModules
 
-local loadHandler = require(utilityModules:WaitForChild("LoadHandler"))
+local loadHandler = require(modules:WaitForChild("LoadHandler"))
 local data = loadHandler.getInfo("Data")
 local utility = loadHandler.getModule("Utility")
 
