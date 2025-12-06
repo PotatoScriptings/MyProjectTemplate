@@ -4,19 +4,38 @@
     "$className": "DataModel",
 
     "ReplicatedStorage": {
+      "Packages": {
+        "$className": "Folder"
+      },
+      "Assets": {
+        "$className": "Folder",
+        "Animations": {"$className": "Folder"},
+        "Models": {"$className": "Folder"},
+        "Sounds": {"$className": "Folder"},
+        "VFX": {"$className": "Folder"}
+      },
+      "Services": {
+        "$className": "Folder",
+        "$path": "src/shared/Modules/Services"
+      },
       "Modules": {
         "$className": "Folder",
-        "$path": "src/shared/Modules"
+        "$path": "src/shared/Modules/Modules"
       },
-      "Animations": {"$className": "Folder"},
-      "Models": {"$className": "Folder"},
-      "Sounds": {"$className": "Folder"},
-      "VFX": {"$className": "Folder"},
-      "Remotes": {"$className": "Folder"}
+      "Information": {
+        "$className": "Folder",
+        "$path": "src/shared/Modules/Information"
+      }
     },
 
     "ServerScriptService": {
-      "$path": "src/Server"
+      "Services": {
+        "$className": "Folder",
+        "$path": "src/Server/Services"
+      },
+      "Packages": {
+        "$className": "Folder"
+      }
     },
 
     "StarterPlayer": {
